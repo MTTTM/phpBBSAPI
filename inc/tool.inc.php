@@ -1,8 +1,8 @@
 <?php 
-function skip($path,$status=0,$message){
+function skip($path,$status=0,$message,$data=array()){
 
     header('Content-Type:application/json; charset=utf-8');
-    $arr = array('status'=>$status,'msg'=>$message);
+    $arr = array('status'=>$status,'msg'=>$message,'data'=>$data);
     exit(json_encode($arr));
 }
 /**
@@ -29,4 +29,21 @@ function isAjax(){
   function isPost() {
     return $_SERVER['REQUEST_METHOD'] == 'POST';
   }
+  /**
+   * 是否已经登录
+   */
+  function is_login($link){
+	if(isset($_COOKIE['sfk']['name']) && isset($_COOKIE['sfk']['pw'])){
+		$query="select * from skf_menber where name='{$_COOKIE['sfk']['name']}' and sha1(pw)='{$_COOKIE['sfk']['pw']}'";
+		$result=execute($link,$query);
+		if(mysqli_num_rows($result)==1){
+			$data=mysqli_fetch_assoc($result);
+			return $data['id'];
+		}else{
+			return false;
+		}
+	}else{
+		return false;
+	}
+}
 ?>
