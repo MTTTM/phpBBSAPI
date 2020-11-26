@@ -2,9 +2,11 @@
 include_once '../inc/config.inc.php';
 include_once '../inc/mysqli.inc.php';
 include_once '../inc/tool.inc.php';
+
 if(isPost()){
 	$link=connect();
 	include '../inc/check_manage.inc.php';
+	include_once 'inc/is_manage_login.inc.php';//验证管理员是否登录
 	$query="insert into sfk_manage(name,pw,create_time,level) values('{$_POST['name']}',md5({$_POST['pw']}),now(),{$_POST['level']})";
 	execute($link,$query);
 	if(mysqli_affected_rows($link)==1){

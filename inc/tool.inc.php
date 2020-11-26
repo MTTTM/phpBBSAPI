@@ -46,4 +46,19 @@ function isAjax(){
 		return false;
 	}
 }
+//验证后台管理员是否登录
+function is_manage_login($link){
+  session_start();
+	if(isset($_SESSION['manage']['name']) && isset($_SESSION['manage']['pw'])){
+		$query="select * from sfk_manage where name='{$_SESSION['manage']['name']}' and sha1(pw)='{$_SESSION['manage']['pw']}'";
+		$result=execute($link,$query);
+		if(mysqli_num_rows($result)==1){
+			return true;
+		}else{
+			return false;
+		}
+	}else{
+		return false;
+	}
+}
 ?>
