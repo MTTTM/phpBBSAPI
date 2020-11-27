@@ -2,8 +2,10 @@
 include_once '../inc/config.inc.php';
 include_once '../inc/mysqli.inc.php';
 include_once '../inc/tool.inc.php';
+
 if(isPost()){
 	$link=connect();
+	include_once 'inc/is_manage_login.inc.php';//验证管理员是否登录
 	//验证用户填写的信息
 	$check_flag='add';
 	include '../inc/check_father_module.inc.php';

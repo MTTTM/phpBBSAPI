@@ -61,4 +61,11 @@ function is_manage_login($link){
 		return false;
 	}
 }
+function check_user($member_id,$content_member_id,$is_manage_login){
+	if($member_id==$content_member_id || $is_manage_login){
+		return true;
+	}else{
+		return false;
+	}
+}
 ?>

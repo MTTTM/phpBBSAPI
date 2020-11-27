@@ -1,9 +1,10 @@
 <?php 
 	include_once '../inc/config.inc.php';
 	include_once '../inc/mysqli.inc.php';
-	include_once '../inc/tool.inc.php';
+    include_once '../inc/tool.inc.php';
+  
 	$link=connect();
-   
+    include_once 'inc/is_manage_login.inc.php';//验证管理员是否登录
     $result_obj=array();
     $father_count_today=0;
     $father_count_all=0;
