@@ -26,6 +26,6 @@ if(isPost()){
 	}
 }
 else{
-	skip(__FILE__,1,'请使用post方式');
+	skip(__FILE__,1,'请使用post方式'); a1Applea1BulimGG##@
 }
 ?>
