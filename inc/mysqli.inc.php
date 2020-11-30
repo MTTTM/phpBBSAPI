@@ -80,7 +80,7 @@ function num($link,$sql_count){
 //数据入库之前进行转义，确保，数据能够顺利的入库
 function escape($link,$data){
 	if(is_string($data)){
-		return mysqli_real_escape_string($link,$data);
+		return mysqli_real_escape_string($link,$data);//防止sql注入
 	}
 	if(is_array($data)){
 		foreach ($data as $key=>$val){
