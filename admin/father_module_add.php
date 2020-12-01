@@ -9,7 +9,7 @@ if(isPost()){
 	//验证用户填写的信息
 	$check_flag='add';
 	include '../inc/check_father_module.inc.php';
-	$query="insert into sfk_fatcher_module(module_name,sort) values('{$_POST['module_name']}',{$_POST['sort']})";
+	$query="insert into sfk_fatcher_module(module_name,sort,name) values('{$_POST['module_name']}','{$_POST['sort']}','{$_POST['name']}')";
 	execute($link,$query);
 	if(mysqli_affected_rows($link)==1){
 		skip(__FILE__,0,'恭喜你，添加成功！');

@@ -19,7 +19,7 @@ if(isPost()){
 	//验证
 	$check_flag='update';
 	include '../inc/check_father_module.inc.php';
-	$query="update sfk_fatcher_module set module_name='{$_POST['module_name']}',sort={$_POST['sort']} where id={$_GET['id']}";
+	$query="update sfk_fatcher_module set module_name='{$_POST['module_name']}',sort={$_POST['sort']},name={$_POST['name']} where id={$_GET['id']}";
 	execute($link,$query);
 	if(mysqli_affected_rows($link)==1){
 		skip(__FILE__,0,'修改成功！');
